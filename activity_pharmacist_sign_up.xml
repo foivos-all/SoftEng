@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PharmacistSignUp">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="68dp"
+        android:layout_marginBottom="58dp"
+        android:text="Διαχείριση Profile Φαρμακοποιού"
+        android:textColor="#E91E63"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/pharmacistFullname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/pharmacistFullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="67dp"
+        android:ems="10"
+        android:hint="Ονοματεπώνυμο"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/pharmacistAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <EditText
+        android:id="@+id/pharmacistAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="75dp"
+        android:ems="10"
+        android:hint="Διεύθυνση"
+        android:inputType="textPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/pharmacistPhone"
+        app:layout_constraintEnd_toEndOf="@+id/pharmacistFullname"
+        app:layout_constraintStart_toStartOf="@+id/pharmacistFullname"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacistFullname" />
+
+    <EditText
+        android:id="@+id/pharmacistPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="33dp"
+        android:ems="10"
+        android:hint="Κινητό Τηλέφωνο"
+        android:inputType="phone"
+        app:layout_constraintBottom_toTopOf="@+id/pdiploma"
+        app:layout_constraintEnd_toEndOf="@+id/pharmacistAddress"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/pharmacistAddress"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacistAddress" />
+
+    <ImageView
+        android:id="@+id/pdiploma"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="163dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pharmacistPhone"
+        app:layout_constraintStart_toStartOf="@+id/pharmacistPhone"
+        app:layout_constraintTop_toBottomOf="@+id/pharmacistPhone"
+        app:srcCompat="@drawable/upload" />
+
+    <Button
+        android:id="@+id/pharmacistSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="65dp"
+        android:onClick="OnPharmacistSignUp"
+        android:text="Αποθήκευση"
+        app:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/pdiploma"
+        app:layout_constraintStart_toStartOf="@+id/pdiploma" />
+</androidx.constraintlayout.widget.ConstraintLayout>
