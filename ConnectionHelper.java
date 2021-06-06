@@ -661,6 +661,336 @@ public class ConnectionHelper extends AsyncTask<String, Void, String> {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+        } else if (type.equals("setHours")) {
+            String hours_url = "http://10.0.2.2/setHours.php";
+            try {
+                String doctor_id = params[1];
+                String hours = params[2];
+                URL url = new URL(hours_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("doctor_id", "UTF-8") + "=" + URLEncoder.encode(doctor_id, "UTF-8") + "&"
+                        + URLEncoder.encode("hours", "UTF-8") + "=" + URLEncoder.encode(hours, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("getDoctors")) {
+            String get_doctors_url = "http://10.0.2.2/getDoctors.php";
+            try {
+                String data[][];
+                URL url = new URL(get_doctors_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder stringBuilder = new StringBuilder();
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null){
+                    stringBuilder.append(line + "\n");
+                }
+                result = stringBuilder.toString();
+                bufferedReader.close();
+                inputStream.close();
+                JSONArray jsonArray = new JSONArray(result);
+                JSONObject jsonObject = null;
+                data = new String[jsonArray.length()][];
+                for (int i=0; i<jsonArray.length(); i++){
+                    data[i] = new String[jsonArray.length()];
+                    jsonObject = jsonArray.getJSONObject(i);
+                    data[i][0] = jsonObject.getString("user_id"); // column name
+                    data[i][1] = jsonObject.getString("fullname"); // column name
+                }
+
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("makeAppointment")) {
+            String hours_url = "http://10.0.2.2/makeAppointment.php";
+            try {
+                String doctor_id = params[1];
+                String patient_id = params[2];
+                String hours = params[3];
+                URL url = new URL(hours_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("doctor_id", "UTF-8") + "=" + URLEncoder.encode(doctor_id, "UTF-8") + "&"
+                        + URLEncoder.encode("patient_id", "UTF-8") + "=" + URLEncoder.encode(patient_id, "UTF-8") + "&"
+                        + URLEncoder.encode("hours", "UTF-8") + "=" + URLEncoder.encode(hours, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("getAppointments")) {
+            String get_appointments_url = "http://10.0.2.2/getAppointments.php";
+            try {
+                String data[][];
+                String doctor_id = params[1];
+                URL url = new URL(get_appointments_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("doctor_id", "UTF-8") + "=" + URLEncoder.encode(doctor_id, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder stringBuilder = new StringBuilder();
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null){
+                    stringBuilder.append(line + "\n");
+                }
+                result = stringBuilder.toString();
+                bufferedReader.close();
+                inputStream.close();
+                JSONArray jsonArray = new JSONArray(result);
+                JSONObject jsonObject = null;
+                data = new String[jsonArray.length()][];
+                for (int i=0; i<jsonArray.length(); i++){
+                    data[i] = new String[jsonArray.length()];
+                    jsonObject = jsonArray.getJSONObject(i);
+                    data[i][0] = jsonObject.getString("id"); // column name
+                    data[i][1] = jsonObject.getString("fullname"); // column name
+                    data[i][2] = jsonObject.getString("date_hour"); // column name
+                }
+
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("updateAppointment")) {
+            String appointment_url = "http://10.0.2.2/updateAppointment.php";
+            try {
+                String appointment_id = params[1];
+                String status = params[2];
+                URL url = new URL(appointment_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("appointment_id", "UTF-8") + "=" + URLEncoder.encode(appointment_id, "UTF-8") + "&"
+                        + URLEncoder.encode("status", "UTF-8") + "=" + URLEncoder.encode(status, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("upgradeToPremium")) {
+            String user_url = "http://10.0.2.2/upgradeToPremium.php";
+            try {
+                String user_id = params[1];
+                URL url = new URL(user_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("user_id", "UTF-8") + "=" + URLEncoder.encode(user_id, "UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("getPharmacies")) {
+            String pharmacies_url = "http://10.0.2.2/getPharmacies.php";
+            try {
+                String data[][];
+                URL url = new URL(pharmacies_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                StringBuilder stringBuilder = new StringBuilder();
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null){
+                    stringBuilder.append(line + "\n");
+                }
+                result = stringBuilder.toString();
+                bufferedReader.close();
+                inputStream.close();
+                JSONArray jsonArray = new JSONArray(result);
+                JSONObject jsonObject = null;
+                data = new String[jsonArray.length()][];
+                for (int i=0; i<jsonArray.length(); i++){
+                    data[i] = new String[jsonArray.length()];
+                    jsonObject = jsonArray.getJSONObject(i);
+                    data[i][0] = jsonObject.getString("id"); // column name
+                    data[i][1] = jsonObject.getString("name"); // column name
+                }
+
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("ratePharmacy")) {
+            String pharmacy_url = "http://10.0.2.2/ratePharmacy.php";
+            try {
+                String pharmacy_id = params[1];
+                String rating = params[2];
+                URL url = new URL(pharmacy_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("pharmacy_id", "UTF-8") + "=" + URLEncoder.encode(pharmacy_id, "UTF-8") + "&"
+                        + URLEncoder.encode("rating", "UTF-8") + "=" + URLEncoder.encode(rating, "UTF-8");;
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (type.equals("rateDoctor")) {
+            String doctor_url = "http://10.0.2.2/rateDoctor.php";
+            try {
+                String doctor_id = params[1];
+                String rating = params[2];
+                URL url = new URL(doctor_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("doctor_id", "UTF-8") + "=" + URLEncoder.encode(doctor_id, "UTF-8") + "&"
+                        + URLEncoder.encode("rating", "UTF-8") + "=" + URLEncoder.encode(rating, "UTF-8");;
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "iso-8859-1"));
+                String result = "";
+                String line = "";
+                while ((line = bufferedReader.readLine()) != null) {
+                    result += line;
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return null;
     }
@@ -682,11 +1012,15 @@ public class ConnectionHelper extends AsyncTask<String, Void, String> {
             context.startActivity(intent);
             ((Activity)context).finish();
         }else if (property == 'G'){
-            Intent intent = new Intent(context, test.class);
+            Intent intent = new Intent(context, DoctorMenu.class);
             context.startActivity(intent);
             ((Activity)context).finish();
         }else if (property == 'F'){
             Intent intent = new Intent(context, PharmacistMenu.class);
+            context.startActivity(intent);
+            ((Activity)context).finish();
+        }else if (property == 'P'){
+            Intent intent = new Intent(context, PremiumMenu.class);
             context.startActivity(intent);
             ((Activity)context).finish();
         }else if (result.equals("back_to_login")){
