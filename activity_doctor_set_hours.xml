@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".DoctorSetHours">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ΔΙΑΧΕΙΡΙΣΗ ΩΡΩΝ ΛΕΙΤΟΥΡΓΙΩΝ"
+        android:textSize="20sp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:textColor="#e08283"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ΑΠΟ"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:textColor="#e08283"/>
+
+            <TimePicker
+                android:id="@+id/doctorTimePickerFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ΜΕ"
+                android:textSize="20sp"
+                android:layout_margin="15dp"
+                android:layout_gravity="center"
+                android:textColor="#e08283"/>
+
+            <TimePicker
+                android:id="@+id/doctorTimePickerTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_submit_hours"
+        android:background="@drawable/round_secondary"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="ΥΠΟΒΟΛΗ"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:onClick="onClick"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Οι ώρες λειτουργίας αφορούν τις μέρες από Δευτέρα εώς Σάββατο"
+        android:textSize="15sp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textColor="#67809f"/>
+
+</LinearLayout>
