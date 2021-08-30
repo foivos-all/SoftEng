@@ -3,7 +3,8 @@
 </p>
 
 # HealthCare - A Health Care Management System
-Software Engineering Project 2021 - CEID University of Patras
+Software Engineering Project 2021 - CEID University of Patras.
+Το παρόν αποτελεί μέρος της εργασίας που είχαμε να εκτελέσουμε στο πλαίσιο του μαθήματος Τεχνολογίας Λογισμικού στο τμήμα Μηχ. Η/Υ και Πληροφορικής του Πανεπιστημίου Πατρών.
 
 
 # SoftEng
