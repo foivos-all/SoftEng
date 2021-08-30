@@ -10,10 +10,10 @@
 
 # Μέλη Ομάδας (Ονοματεπώνυμο - Αριθμός Μητρώου)
 <ul>
-  <li>[Φοίβος Αλλαγιώτης - Α.Μ.: 1056636](https://github.com/foivos-all)</li>
-  <li>[Αντρέας Παλαμάς - Α.Μ.: 1049789](https://github.com/Apalms)</li>
-  <li>[Ορέστης Παρεκκλησίτης - Α.Μ.: 1056646](https://github.com/orestispa)</li>
-  <li>[Ηλίας Καρύδης - Α.Μ.: 1056921](https://github.com/ilias-karydis)</li>
+  <li><a href="https://github.com/foivos-all">Φοίβος Αλλαγιώτης - Α.Μ.: 1056636</a></li>
+  <li><a href="https://github.com/Apalms">Αντρέας Παλαμάς - Α.Μ.: 1049789</a></li>
+  <li><a href="https://github.com/orestispa">Ορέστης Παρεκκλησίτης - Α.Μ.: 1056646</a></li>
+  <li><a href="https://github.com/ilias-karydis">Ηλίας Καρύδης - Α.Μ.: 1056921</a></li>
 </ul>
 
 # Αλλαγές
