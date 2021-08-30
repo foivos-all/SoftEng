@@ -2,6 +2,10 @@
   <img src="./Code/images/logo.jpg" />
 </p>
 
+# HealthCare - A Health Care Management System
+
+-----
+
 # SoftEng
 
 ------------------------------------------------ 20/04/21 Project-code-v0.1 ------------------------------------------------
