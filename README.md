@@ -1,4 +1,4 @@
-<img src="./Code/images/logo.jpg" style="vertical-align:middle">
+<img src="./Code/images/logo.jpg" align="middle" />
 
 # SoftEng
 
