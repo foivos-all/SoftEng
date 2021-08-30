@@ -1,4 +1,6 @@
-<img align="right"  src="./Code/images/logo.jpg">
+<p align="center">
+  <img src="./Code/images/logo.jpg" />
+</p>
 
 # SoftEng
 
