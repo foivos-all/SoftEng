@@ -1,6 +1,4 @@
-<img align="center"  src="./Code/images/logo.jpg">
-
-<img align="center" width="200" src="https://thehappypuppysite.com/wp-content/uploads/2017/10/Cute-Dog-Names-HP-long.jpg">
+<img align="right"  src="./Code/images/logo.jpg">
 
 # SoftEng
 
