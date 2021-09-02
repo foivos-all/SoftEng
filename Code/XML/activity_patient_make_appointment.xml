@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PatientMakeAppointment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ΚΛΕΙΣΙΜΟ ΡΑΝΤΕΒΟΥ"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:textColor="#e08283"
+            android:layout_gravity="center"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_grey"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_doctor"
+                android:layout_width="300dp"
+                android:layout_height="40dp" />
+        </FrameLayout>
+
+        <DatePicker
+            android:id="@+id/patientDatePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"/>
+
+        <TimePicker
+            android:id="@+id/patientTimePicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="15dp"/>
+
+        <Button
+            android:id="@+id/button_make_appointment"
+            android:background="@drawable/round_secondary"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="ΥΠΟΒΟΛΗ"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:onClick="onClick"/>
+    </LinearLayout>
+
+</ScrollView>
