@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PatientOrderProducts">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ΠΑΡΑΓΓΕΛΙΑ ΠΡΟΪΟΝΤΩΝ"
+            android:textSize="20sp"
+            android:layout_margin="15dp"
+            android:textColor="#e08283"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/round_grey"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spinner_products"
+                android:layout_width="300dp"
+                android:layout_height="40dp" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp">
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="ΟΝΟΜΑ"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="ΑΠΟΘΕΜΑ"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="ΤΙΜΗ" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/order_products_layout_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+        <Button
+            android:id="@+id/button_order_list"
+            android:background="@drawable/round_secondary"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="ΥΠΟΒΟΛΗ ΛΙΣΤΑΣ"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:onClick="onClick"/>
+
+        <TextView
+            android:id="@+id/ordered_products_title"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Η ΠΑΡΑΓΓΕΛΙΑ ΣΑΣ"
+            android:gravity="center"
+            android:background="@drawable/round_grey"
+            android:textColor="@color/white"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:id="@+id/ordered_products_layout_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
